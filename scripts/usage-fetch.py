@@ -1226,7 +1226,7 @@ def fetch_cliproxy_account(provider_id: str, entry: dict[str, Any], client: CliP
             if not isinstance(project, str) or not project:
                 raise ProviderFailure("config", "Antigravity quota lookup needs a project ID on this CLIProxyAPI account.")
             payload = client.usage(entry, "https://daily-cloudcode-pa.googleapis.com/v1internal:retrieveUserQuotaSummary",
-                                   {"Content-Type": "application/json", "User-Agent": "antigravity/cli/1.0.13 (aidev_client; os_type=linux; arch=amd64)"},
+                                   {"Content-Type": "application/json", "User-Agent": "antigravity/hub/2.23.0 darwin/arm64"},
                                    timeout, data={"project": project})
             windows, credits, plan = parse_antigravity_usage(payload), None, ""
         result.update(windows=windows, credits=credits, plan=clean_message(plan),
